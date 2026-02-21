@@ -127,16 +127,9 @@
             </a>
         </section>
 
-        <!-- 수익화 2 (쿠팡 파트너스 배너) -->
-        <section class="px-5 mb-12">
-            <!-- 사용자 확인용: 여기에 본인의 쿠팡 파트너스 링크를 넣으세요! -->
-            <a href="https://link.coupang.com/a/dPFpaJ"
-                class="block w-full bg-[#FFD700] text-[#00563F] px-4 py-8 rounded-2xl shadow-md animate-pulse active:scale-95 transition-transform text-center">
-                <span class="text-2xl font-extrabold">🎁 눈 침침할 때 최고!<br>루테인 영양제 특가 보기</span>
-            </a>
-            <p class="text-center text-sm font-bold text-red-500 mt-3 break-keep">
-                ※ "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
-            </p>
+        <!-- 수익화 2 (쿠팡 파트너스 배너 - 랜덤 스크립트) -->
+        <section class="px-5 mb-12" id="coupang-banner-container">
+            <!-- 자바스크립트에 의해 랜덤 배너가 여기에 삽입됩니다 -->
         </section>
 
         <!-- 푸터 -->
@@ -148,7 +141,7 @@
 
     </main>
 
-    <!-- 슬라이드 동작용 자바스크립트 -->
+    <!-- 슬라이드 및 쿠팡 파트너스 랜덤 배너 자바스크립트 -->
     <script>
         const slides = [
             "<span class='text-[#00563F] font-black'>1단계: 트롯스타 앱 로그인</span><br><span class='text-[18px] text-gray-600 mt-2 block'>노란색 '카카오톡으로 시작하기' 버튼을 눌러 쉽게 접속하세요!</span>",
@@ -172,8 +165,40 @@
             updateSlide();
         }
 
+        // --- 쿠팡 파트너스 시니어 맞춤형 랜덤 상품 스크립트 ---
+        const coupangProducts = [
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "🎁 눈 침침할 때 최고!<br>루테인 영양제 특가 보기", bg: "bg-[#FFD700]", textColor: "text-[#00563F]" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "💪 관절 무릎을 위한<br>프리미엄 무릎 보호대", bg: "bg-[#4CAF50]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "🔥 기력 회복엔 역시<br>6년근 홍삼 스틱 특가", bg: "bg-[#D32F2F]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "💆‍♀️ 뻐근한 어깨와 목에<br>시원한 안마기/마사지기", bg: "bg-[#2196F3]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "✨ 젊어지는 비결!<br>새치 커버 간편 염색약", bg: "bg-[#9C27B0]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "👟 발이 편안한<br>시니어 기능성 푹신한 신발", bg: "bg-[#FF9800]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "🦷 튼튼한 치아와 잇몸!<br>시니어 전용 치약 특가", bg: "bg-[#00BCD4]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "💤 꿀잠 보장!<br>숙면을 위한 경추 베개", bg: "bg-[#673AB7]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "🥣 입맛 없을 땐!<br>영양 만점 간편 영양식", bg: "bg-[#FF5722]", textColor: "text-white" },
+            { link: "https://link.coupang.com/a/dPFpaJ", text: "🦯 안전한 외출 필수품!<br>튼튼한 접이식 지팡이", bg: "bg-[#795548]", textColor: "text-white" }
+        ];
+
+        function renderRandomCoupang() {
+            const randomProduct = coupangProducts[Math.floor(Math.random() * coupangProducts.length)];
+            const container = document.getElementById("coupang-banner-container");
+            if (container) {
+                container.innerHTML = `
+                    <a href="${randomProduct.link}" class="block w-full ${randomProduct.bg} ${randomProduct.textColor} px-4 py-8 rounded-2xl shadow-md animate-pulse active:scale-95 transition-transform text-center mb-3">
+                        <span class="text-2xl font-extrabold">${randomProduct.text}</span>
+                    </a>
+                    <p class="text-center text-sm font-bold text-red-500 break-keep">
+                        ※ "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
+                    </p>
+                `;
+            }
+        }
+
         // 페이지 로드 시 초기 화면 설정
-        document.addEventListener("DOMContentLoaded", updateSlide);
+        document.addEventListener("DOMContentLoaded", () => {
+            updateSlide();
+            renderRandomCoupang();
+        });
     </script>
 </body>
 
