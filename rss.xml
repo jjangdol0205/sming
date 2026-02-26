@@ -6,22 +6,232 @@
     <description>황영웅 가수님을 위한 파라다이스 매일 응원방 및 시니어 꿀팁 블로그</description>
     <atom:link href="https://paradise-hero.com/rss.xml" rel="self" type="application/rss+xml" />
     <language>ko</language>
-    <lastBuildDate>Wed, 06 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Feb 2026 05:05:05 GMT</lastBuildDate>
 
     <item>
-      <title>홈 - 김쌤과 함께하는 파라다이스 매일 응원방</title>
+      <title>홈</title>
+      <link>https://paradise-hero.com/</link>
+      <guid>https://paradise-hero.com/</guid>
+    </item>
+    <item>
+      <title>index</title>
       <link>https://paradise-hero.com/index.html</link>
-      <description>황영웅 가수님 공식 투표, 스트리밍 바로가기 모음</description>
-      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://paradise-hero.com/index.html</guid>
     </item>
-
     <item>
-      <title>김쌤표 시니어 건강/생활 꿀팁 블로그 총모음</title>
+      <title>blog_list</title>
       <link>https://paradise-hero.com/blog_list.html</link>
-      <description>시니어를 위한 유익한 건강 및 생활 정보 총 35편</description>
-      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://paradise-hero.com/blog_list.html</guid>
+    </item>
+    <item>
+      <title>privacy</title>
+      <link>https://paradise-hero.com/privacy.html</link>
+      <guid>https://paradise-hero.com/privacy.html</guid>
+    </item>
+    <item>
+      <title>privacy-policy</title>
+      <link>https://paradise-hero.com/privacy-policy.html</link>
+      <guid>https://paradise-hero.com/privacy-policy.html</guid>
+    </item>
+    <item>
+      <title>terms-of-service</title>
+      <link>https://paradise-hero.com/terms-of-service.html</link>
+      <guid>https://paradise-hero.com/terms-of-service.html</guid>
+    </item>
+    <item>
+      <title>battery</title>
+      <link>https://paradise-hero.com/battery.html</link>
+      <guid>https://paradise-hero.com/battery.html</guid>
+    </item>
+    <item>
+      <title>lutein</title>
+      <link>https://paradise-hero.com/lutein.html</link>
+      <guid>https://paradise-hero.com/lutein.html</guid>
+    </item>
+    <item>
+      <title>kakaotalk</title>
+      <link>https://paradise-hero.com/kakaotalk.html</link>
+      <guid>https://paradise-hero.com/kakaotalk.html</guid>
+    </item>
+    <item>
+      <title>smishing</title>
+      <link>https://paradise-hero.com/smishing.html</link>
+      <guid>https://paradise-hero.com/smishing.html</guid>
+    </item>
+    <item>
+      <title>blog/post1</title>
+      <link>https://paradise-hero.com/blog/post1.html</link>
+      <guid>https://paradise-hero.com/blog/post1.html</guid>
+    </item>
+    <item>
+      <title>blog/post10</title>
+      <link>https://paradise-hero.com/blog/post10.html</link>
+      <guid>https://paradise-hero.com/blog/post10.html</guid>
+    </item>
+    <item>
+      <title>blog/post11</title>
+      <link>https://paradise-hero.com/blog/post11.html</link>
+      <guid>https://paradise-hero.com/blog/post11.html</guid>
+    </item>
+    <item>
+      <title>blog/post12</title>
+      <link>https://paradise-hero.com/blog/post12.html</link>
+      <guid>https://paradise-hero.com/blog/post12.html</guid>
+    </item>
+    <item>
+      <title>blog/post13</title>
+      <link>https://paradise-hero.com/blog/post13.html</link>
+      <guid>https://paradise-hero.com/blog/post13.html</guid>
+    </item>
+    <item>
+      <title>blog/post14</title>
+      <link>https://paradise-hero.com/blog/post14.html</link>
+      <guid>https://paradise-hero.com/blog/post14.html</guid>
+    </item>
+    <item>
+      <title>blog/post15</title>
+      <link>https://paradise-hero.com/blog/post15.html</link>
+      <guid>https://paradise-hero.com/blog/post15.html</guid>
+    </item>
+    <item>
+      <title>blog/post16</title>
+      <link>https://paradise-hero.com/blog/post16.html</link>
+      <guid>https://paradise-hero.com/blog/post16.html</guid>
+    </item>
+    <item>
+      <title>blog/post17</title>
+      <link>https://paradise-hero.com/blog/post17.html</link>
+      <guid>https://paradise-hero.com/blog/post17.html</guid>
+    </item>
+    <item>
+      <title>blog/post18</title>
+      <link>https://paradise-hero.com/blog/post18.html</link>
+      <guid>https://paradise-hero.com/blog/post18.html</guid>
+    </item>
+    <item>
+      <title>blog/post19</title>
+      <link>https://paradise-hero.com/blog/post19.html</link>
+      <guid>https://paradise-hero.com/blog/post19.html</guid>
+    </item>
+    <item>
+      <title>blog/post2</title>
+      <link>https://paradise-hero.com/blog/post2.html</link>
+      <guid>https://paradise-hero.com/blog/post2.html</guid>
+    </item>
+    <item>
+      <title>blog/post20</title>
+      <link>https://paradise-hero.com/blog/post20.html</link>
+      <guid>https://paradise-hero.com/blog/post20.html</guid>
+    </item>
+    <item>
+      <title>blog/post21</title>
+      <link>https://paradise-hero.com/blog/post21.html</link>
+      <guid>https://paradise-hero.com/blog/post21.html</guid>
+    </item>
+    <item>
+      <title>blog/post22</title>
+      <link>https://paradise-hero.com/blog/post22.html</link>
+      <guid>https://paradise-hero.com/blog/post22.html</guid>
+    </item>
+    <item>
+      <title>blog/post23</title>
+      <link>https://paradise-hero.com/blog/post23.html</link>
+      <guid>https://paradise-hero.com/blog/post23.html</guid>
+    </item>
+    <item>
+      <title>blog/post24</title>
+      <link>https://paradise-hero.com/blog/post24.html</link>
+      <guid>https://paradise-hero.com/blog/post24.html</guid>
+    </item>
+    <item>
+      <title>blog/post25</title>
+      <link>https://paradise-hero.com/blog/post25.html</link>
+      <guid>https://paradise-hero.com/blog/post25.html</guid>
+    </item>
+    <item>
+      <title>blog/post26</title>
+      <link>https://paradise-hero.com/blog/post26.html</link>
+      <guid>https://paradise-hero.com/blog/post26.html</guid>
+    </item>
+    <item>
+      <title>blog/post27</title>
+      <link>https://paradise-hero.com/blog/post27.html</link>
+      <guid>https://paradise-hero.com/blog/post27.html</guid>
+    </item>
+    <item>
+      <title>blog/post28</title>
+      <link>https://paradise-hero.com/blog/post28.html</link>
+      <guid>https://paradise-hero.com/blog/post28.html</guid>
+    </item>
+    <item>
+      <title>blog/post29</title>
+      <link>https://paradise-hero.com/blog/post29.html</link>
+      <guid>https://paradise-hero.com/blog/post29.html</guid>
+    </item>
+    <item>
+      <title>blog/post3</title>
+      <link>https://paradise-hero.com/blog/post3.html</link>
+      <guid>https://paradise-hero.com/blog/post3.html</guid>
+    </item>
+    <item>
+      <title>blog/post30</title>
+      <link>https://paradise-hero.com/blog/post30.html</link>
+      <guid>https://paradise-hero.com/blog/post30.html</guid>
+    </item>
+    <item>
+      <title>blog/post31</title>
+      <link>https://paradise-hero.com/blog/post31.html</link>
+      <guid>https://paradise-hero.com/blog/post31.html</guid>
+    </item>
+    <item>
+      <title>blog/post32</title>
+      <link>https://paradise-hero.com/blog/post32.html</link>
+      <guid>https://paradise-hero.com/blog/post32.html</guid>
+    </item>
+    <item>
+      <title>blog/post33</title>
+      <link>https://paradise-hero.com/blog/post33.html</link>
+      <guid>https://paradise-hero.com/blog/post33.html</guid>
+    </item>
+    <item>
+      <title>blog/post34</title>
+      <link>https://paradise-hero.com/blog/post34.html</link>
+      <guid>https://paradise-hero.com/blog/post34.html</guid>
+    </item>
+    <item>
+      <title>blog/post35</title>
+      <link>https://paradise-hero.com/blog/post35.html</link>
+      <guid>https://paradise-hero.com/blog/post35.html</guid>
+    </item>
+    <item>
+      <title>blog/post4</title>
+      <link>https://paradise-hero.com/blog/post4.html</link>
+      <guid>https://paradise-hero.com/blog/post4.html</guid>
+    </item>
+    <item>
+      <title>blog/post5</title>
+      <link>https://paradise-hero.com/blog/post5.html</link>
+      <guid>https://paradise-hero.com/blog/post5.html</guid>
+    </item>
+    <item>
+      <title>blog/post6</title>
+      <link>https://paradise-hero.com/blog/post6.html</link>
+      <guid>https://paradise-hero.com/blog/post6.html</guid>
+    </item>
+    <item>
+      <title>blog/post7</title>
+      <link>https://paradise-hero.com/blog/post7.html</link>
+      <guid>https://paradise-hero.com/blog/post7.html</guid>
+    </item>
+    <item>
+      <title>blog/post8</title>
+      <link>https://paradise-hero.com/blog/post8.html</link>
+      <guid>https://paradise-hero.com/blog/post8.html</guid>
+    </item>
+    <item>
+      <title>blog/post9</title>
+      <link>https://paradise-hero.com/blog/post9.html</link>
+      <guid>https://paradise-hero.com/blog/post9.html</guid>
     </item>
   </channel>
 </rss>
