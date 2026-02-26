@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>김쌤과 함께하는 파라다이스 매일 응원방</title>
+    <link>https://paradise-hero.com/</link>
+    <description>황영웅 가수님을 위한 파라다이스 매일 응원방 및 시니어 꿀팁 블로그</description>
+    <atom:link href="https://paradise-hero.com/rss.xml" rel="self" type="application/rss+xml" />
+    <language>ko</language>
+    <lastBuildDate>Wed, 06 Nov 2024 00:00:00 +0000</lastBuildDate>
+
+    <item>
+      <title>홈 - 김쌤과 함께하는 파라다이스 매일 응원방</title>
+      <link>https://paradise-hero.com/index.html</link>
+      <description>황영웅 가수님 공식 투표, 스트리밍 바로가기 모음</description>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://paradise-hero.com/index.html</guid>
+    </item>
+
+    <item>
+      <title>김쌤표 시니어 건강/생활 꿀팁 블로그 총모음</title>
+      <link>https://paradise-hero.com/blog_list.html</link>
+      <description>시니어를 위한 유익한 건강 및 생활 정보 총 35편</description>
+      <pubDate>Wed, 06 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://paradise-hero.com/blog_list.html</guid>
+    </item>
+  </channel>
+</rss>
