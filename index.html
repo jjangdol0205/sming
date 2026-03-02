@@ -27,6 +27,10 @@
     <!-- 구글 애드센스 승인 신청용 스크립트: 아래 '여기에_애드센스_PUB_번호_입력' 부분을 본인의 pub 번호(예: ca-pub-123456789)로 바꿔주세요 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4633321310054654"
         crossorigin="anonymous"></script>
+    <!-- 카카오톡 SDK -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
+        integrity="sha384-6MFd/x0k0Z8H7tL/PqB8t5b+x9R0m59S9A8Kxuv0JraBMGtd7L1Yyd1M0LqGqfHj"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -280,24 +284,29 @@
         // 페이지 로드 시 초기 화면 설정
         document.addEventListener("DOMContentLoaded", () => {
             updateSlide();
-            // 애드센스 승인을 위해 임시로 쿠팡 파트너스 배너 비활성화 (승인 후 다시 주석 해제)
-            // renderRandomCoupang();
+            // 카카오 SDK 초기화 (앱 키는 예시입니다. 본인의 JavaScript 키로 수정 필요)
+            // '여기에_본인의_카카오_자바스크립트_앱_키를_넣으세요' 부분을 실제 키로 변경해야 정상 작동합니다.
+            if (!Kakao.isInitialized()) {
+                Kakao.init('ff863b963dc366ae1fbfd257cc3823dd');
+            }
         });
 
         // 카카오톡 (Web Share API) 공유 기능
         function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: '김쌤과 함께하는 파라다이스 매일 응원방',
-                    text: '황영웅님을 위한 투표와 유용한 시니어 정보가 가득한 이곳으로 오세요!',
-                    url: window.location.href,
-                }).catch(console.error);
-            } else {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert('인터넷 주소가 복사되었습니다!\\n카카오톡 대화방 글쓰기 창을 길게 눌러 "붙여넣기" 해주세요.');
-                }).catch(() => {
-                    alert('보고 계신 화면의 인터넷 주소(URL)를 복사해서 카카오톡에 공유해 주세요!');
+            if (Kakao.isInitialized()) {
+                Kakao.Share.sendScrap({
+                    requestUrl: window.location.href,
+                    templateId: 104523, // 템플릿 ID를 사용할 경우 (어르신 맞춤형 템플릿 사전 제작 권장)
+                    // 위 templateId 대신 직접 내용을 꾸미려면 sendDefault를 사용합니다 (주석 처리)
+                    /*
+                    templateArgs: {
+                        title: '김쌤과 함께하는 파라다이스 매일 응원방',
+                        description: '황영웅님을 위한 투표와 유용한 시니어 정보가 가득한 이곳으로 오세요!'
+                    }
+                    */
                 });
+            } else {
+                alert('카카오톡 공유 기능 초기화에 실패했습니다.');
             }
         }
     </script>

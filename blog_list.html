@@ -26,6 +26,10 @@
     <!-- 구글 애드센스 승인 신청용 스크립트: 아래 '여기에_애드센스_PUB_번호_입력' 부분을 본인의 pub 번호(예: ca-pub-123456789)로 바꿔주세요 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4633321310054654"
         crossorigin="anonymous"></script>
+    <!-- 카카오톡 SDK -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.6.0/kakao.min.js"
+        integrity="sha384-6MFd/x0k0Z8H7tL/PqB8t5b+x9R0m59S9A8Kxuv0JraBMGtd7L1Yyd1M0LqGqfHj"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -238,19 +242,37 @@
 
     <!-- 카카오톡 (Web Share API) 공유 기능 -->
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!Kakao.isInitialized()) {
+                Kakao.init('ff863b963dc366ae1fbfd257cc3823dd');
+            }
+        });
+
         function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: '김쌤의 시니어 꿀팁 총보물창고',
-                    text: '읽으면 돈이 되고 무병장수하는 기적의 특급 비밀 정보들을 여기서 확인하세요!',
-                    url: window.location.href,
-                }).catch(console.error);
-            } else {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert('인터넷 주소가 복사되었습니다!\\n카카오톡 대화방 글쓰기 창을 길게 눌러 "붙여넣기" 해주세요.');
-                }).catch(() => {
-                    alert('보고 계신 화면의 인터넷 주소(URL)를 복사해서 카카오톡에 공유해 주세요!');
+            if (Kakao.isInitialized()) {
+                Kakao.Share.sendDefault({
+                    objectType: 'feed',
+                    content: {
+                        title: '김쌤의 시니어 꿀팁 총보물창고',
+                        description: '읽으면 돈이 되고 무병장수하는 기적의 특급 비밀 정보들을 여기서 확인하세요!',
+                        imageUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png', // 임시 이미지
+                        link: {
+                            mobileWebUrl: window.location.href,
+                            webUrl: window.location.href,
+                        },
+                    },
+                    buttons: [
+                        {
+                            title: '꿀팁 구경하러 가기',
+                            link: {
+                                mobileWebUrl: window.location.href,
+                                webUrl: window.location.href,
+                            },
+                        },
+                    ],
                 });
+            } else {
+                alert('카카오톡 공유 기능 초기화에 실패했습니다.');
             }
         }
     </script>
