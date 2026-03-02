@@ -49,6 +49,18 @@
             <p class="text-lg font-bold text-gray-100 mt-4">읽으면 돈이 되고 무병장수하는 기적의 특급 비밀 정보들을 모두 모았습니다!</p>
         </header>
 
+        <!-- 카카오톡 공유 버튼 -->
+        <section class="px-5 mt-6 mb-2">
+            <button onclick="sharePage()"
+                class="w-full bg-[#FEE500] text-[#000000] text-2xl font-extrabold py-4 rounded-2xl shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 3c-5.523 0-10 3.823-10 8.538 0 3.018 1.936 5.672 4.887 7.152-.162.597-.584 2.144-.668 2.474-.108.418.156.408.334.288.136-.092 2.16-1.469 3.024-2.072.775.14 1.583.216 2.423.216 5.523 0 10-3.823 10-8.538S17.523 3 12 3z" />
+                </svg>
+                카카오톡으로 이 화면 공유하기
+            </button>
+        </section>
+
         <section class="px-5 py-6">
 
             <!-- 스마트폰/디지털 카테고리 -->
@@ -223,6 +235,25 @@
             <p class="text-xs text-gray-400">© 2024 김쌤과 함께하는 파라다이스. All rights reserved.</p>
         </footer>
     </main>
+
+    <!-- 카카오톡 (Web Share API) 공유 기능 -->
+    <script>
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '김쌤의 시니어 꿀팁 총보물창고',
+                    text: '읽으면 돈이 되고 무병장수하는 기적의 특급 비밀 정보들을 여기서 확인하세요!',
+                    url: window.location.href,
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('인터넷 주소가 복사되었습니다!\\n카카오톡 대화방 글쓰기 창을 길게 눌러 "붙여넣기" 해주세요.');
+                }).catch(() => {
+                    alert('보고 계신 화면의 인터넷 주소(URL)를 복사해서 카카오톡에 공유해 주세요!');
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
