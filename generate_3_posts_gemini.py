@@ -3,7 +3,7 @@ import datetime
 import os
 import json
 
-GEMINI_API_KEY = "AIzaSyBQZRcP1_-eYhDip294fF2N56-aziupyqY"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
 
