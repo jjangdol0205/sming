@@ -8,10 +8,27 @@ const baseUrl = 'https://paradise-hero.com';
 function processHtmlFile(filePath, relativeUrl) {
     let content = fs.readFileSync(filePath, 'utf8');
 
-    // Skip if already has SEO tags (rudimentary check)
-    if (content.includes('rel="canonical"') && content.includes('og:title')) {
-        console.log(`Skipping (already processed): ${relativeUrl}`);
-        return;
+    // Remove existing SEO block if present
+    const seoStart = '<!-- SEO Meta Tags -->';
+    let seoStartIdx = content.indexOf(seoStart);
+    
+    // Some older files might simply have `<meta name="description"` directly inside. We will just use the comment marker.
+    // Loop in case of multiple blocks
+    while (seoStartIdx !== -1) {
+        const twitterImage = '<meta property="twitter:image" content="https://paradise-hero.com/assets/og-image.jpg">';
+        const seoEndIdx = content.indexOf(twitterImage, seoStartIdx);
+        if (seoEndIdx !== -1) {
+            content = content.slice(0, seoStartIdx) + content.slice(seoEndIdx + twitterImage.length).replace(/^\s+/, '\n');
+        } else {
+            // fallback, cut until just before </head>
+            const headEnd = content.indexOf('</head>', seoStartIdx);
+            if (headEnd !== -1) {
+                content = content.slice(0, seoStartIdx) + content.slice(headEnd).replace(/^\s+/, '\n');
+            } else {
+                break;
+            }
+        }
+        seoStartIdx = content.indexOf(seoStart);
     }
 
     // Extract title
@@ -19,8 +36,23 @@ function processHtmlFile(filePath, relativeUrl) {
     const title = titleMatch ? titleMatch[1] : '김쌤과 함께하는 파라다이스 매일 응원방';
 
     // Description
-    const defaultDesc = '황영웅 가수님을 위한 파라다이스 매일 응원방 및 시니어 꿀팁 블로그입니다. 시니어를 위한 유용한 정보와 건강 꿀팁을 확인하세요.';
-    let description = defaultDesc;
+    let description = '황영웅 가수님을 위한 파라다이스 매일 응원방 및 시니어 꿀팁 블로그입니다. 시니어를 위한 유용한 정보와 건강 꿀팁을 확인하세요.';
+    
+    // For blog posts, extract the first paragraph text
+    if (relativeUrl.startsWith('/blog/')) {
+        const pMatch = content.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+        if (pMatch && pMatch[1]) {
+            let text = pMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+            if (text.length > 0) {
+                if (text.length > 150) {
+                    text = text.substring(0, 150) + '...';
+                }
+                // Escape quotes
+                text = text.replace(/"/g, '&quot;');
+                description = text;
+            }
+        }
+    }
 
     // Construct Canonical URL
     const canonicalUrl = relativeUrl === '/index.html' ? baseUrl + '/' : baseUrl + relativeUrl;
@@ -35,7 +67,7 @@ function processHtmlFile(filePath, relativeUrl) {
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
-    <meta property="og:image" content="${baseUrl}/assets/og-image.jpg"> <!-- Ensure an image exists or adjust -->
+    <meta property="og:image" content="${baseUrl}/assets/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -45,11 +77,10 @@ function processHtmlFile(filePath, relativeUrl) {
     <meta property="twitter:image" content="${baseUrl}/assets/og-image.jpg">
 `;
 
-    // Inject before closing </head> or after <meta name="viewport" ...>
     if (content.includes('</head>')) {
-        content = content.replace('</head>', seoTags + '</head>');
+        content = content.replace('</head>', seoTags.trimEnd() + '\n</head>');
         fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`Processed: ${relativeUrl}`);
+        console.log(`Processed: ${relativeUrl} (${description.slice(0, 30)}...)`);
     } else {
         console.error(`Could not find </head> in ${relativeUrl}`);
     }
