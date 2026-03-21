@@ -1,0 +1,42 @@
+name: Daily Blog Automation
+
+on:
+  schedule:
+    - cron: '0 21 * * *' # Runs at 21:00 UTC (6:00 AM KST) every day
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write # Important: lets the bot push to the repository
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install Python dependencies
+        run: pip install google-generativeai
+        
+      - name: Generate daily posts and update HTML
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python generate_daily_auto.py
+        
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Auto: Generated 3 daily blog posts + sitemap" || echo "No changes to commit"
+          git push
