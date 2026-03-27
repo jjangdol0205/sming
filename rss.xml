@@ -6,7 +6,7 @@
     <description>황영웅 가수님을 위한 파라다이스 매일 응원방 및 시니어 꿀팁 블로그</description>
     <atom:link href="https://paradise-hero.com/rss.xml" rel="self" type="application/rss+xml" />
     <language>ko</language>
-    <lastBuildDate>Thu, 26 Mar 2026 21:23:16 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 21:26:48 GMT</lastBuildDate>
 
     <item>
       <title>홈</title>
@@ -537,6 +537,21 @@
       <title>blog/post96</title>
       <link>https://paradise-hero.com/blog/post96.html</link>
       <guid>https://paradise-hero.com/blog/post96.html</guid>
+    </item>
+    <item>
+      <title>blog/post97</title>
+      <link>https://paradise-hero.com/blog/post97.html</link>
+      <guid>https://paradise-hero.com/blog/post97.html</guid>
+    </item>
+    <item>
+      <title>blog/post98</title>
+      <link>https://paradise-hero.com/blog/post98.html</link>
+      <guid>https://paradise-hero.com/blog/post98.html</guid>
+    </item>
+    <item>
+      <title>blog/post99</title>
+      <link>https://paradise-hero.com/blog/post99.html</link>
+      <guid>https://paradise-hero.com/blog/post99.html</guid>
     </item>
   </channel>
 </rss>
