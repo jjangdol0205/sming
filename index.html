@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -81,6 +81,8 @@
     <meta property="twitter:title" content="김쌤과 함께하는 파라다이스 매일 응원방">
     <meta property="twitter:description" content="황영웅 가수님을 위한 파라다이스 매일 응원방 및 시니어 꿀팁 블로그입니다. 시니어를 위한 유용한 정보와 건강 꿀팁을 확인하세요.">
     <meta property="twitter:image" content="https://paradise-hero.com/assets/og-image.jpg?v=2">
+    <!-- 카카오 SDK 연동 -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" integrity="sha384-l+xbElFSnXYZ8kXnaZ1Z5a42/E/L2Qn6V2iC2YhB0w4+gY2zD+wPz5mE/N12V2yX" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-[#FFFFF0] text-gray-900 leading-[1.8]">
@@ -102,7 +104,7 @@
 
         <!-- 카카오톡 공유 버튼 -->
         <section class="px-5 mb-8">
-            <button onclick="sharePage()"
+            <button onclick="shareKakao()"
                 class="w-full bg-[#FEE500] text-[#000000] text-2xl font-extrabold py-4 rounded-2xl shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                     <path
@@ -312,21 +314,34 @@
             updateSlide();
         });
 
-        // 카카오톡 (Web Share API) 공유 기능
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: '김쌤과 함께하는 파라다이스 매일 응원방',
-                    text: '황영웅님을 위한 투표와 유용한 시니어 정보가 가득한 이곳으로 오세요!',
-                    url: window.location.href,
-                }).catch(console.error);
-            } else {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    alert('인터넷 주소가 복사되었습니다!\\n카카오톡 대화방 글쓰기 창을 길게 눌러 "붙여넣기" 해주세요.');
-                }).catch(() => {
-                    alert('보고 계신 화면의 인터넷 주소(URL)를 복사해서 카카오톡에 공유해 주세요!');
-                });
-            }
+        // 카카오 공식 SDK 초기화
+        if (!Kakao.isInitialized()) {
+            Kakao.init('c533b9573ef021f5808a6fc5a8273533');
+        }
+
+        // 카카오링크 (버튼형 공유 카드) 전송 기능
+        function shareKakao() {
+            Kakao.Share.sendDefault({
+              objectType: 'feed',
+              content: {
+                title: '김쌤과 함께하는 파라다이스 통합 응원방 오픈!',
+                description: '가수님을 위한 필수 투표와 스밍을 이곳에 모두 모았습니다. 스마트폰이 서툴러도 1초면 끝! 편하게 매일 출석 체크해요~',
+                imageUrl: 'https://paradise-hero.com/assets/og-image.jpg?v=2',
+                link: {
+                  mobileWebUrl: 'https://paradise-hero.com',
+                  webUrl: 'https://paradise-hero.com',
+                },
+              },
+              buttons: [
+                {
+                  title: '👉 오늘의 미션(투표/스밍) 하러가기',
+                  link: {
+                    mobileWebUrl: 'https://paradise-hero.com',
+                    webUrl: 'https://paradise-hero.com',
+                  },
+                },
+              ],
+            });
         }
     </script>
 </body>
