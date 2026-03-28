@@ -112,25 +112,35 @@
             </button>
         </section>
 
-        <!-- 수익화 1 (애드센스) -->
+        <!-- 수익화 1 (텐핑 메디콕 CPA) -->
         <div class="px-5 mb-8">
-            <div
-                class="w-full h-24 bg-gray-200 flex flex-col items-center justify-center text-gray-500 font-bold p-2 text-center">
-                <span>구글 배너 광고 1 (애드센스 승인 후 광고 코드 삽입)</span>
-                <span class="text-sm text-red-500 mt-1">※ 애드센스 승인이 완료되면 여기에 광고 코드를 붙여넣으세요.</span>
+            <div style="display:inline-block; width:100%; text-align:center;">
+                <div style="display:inline-block;">
+                    <div style="margin:10px; padding:15px; background:#fff; border:1px solid #dae2e3;">
+                        <div style="width:100%; max-width:800px;">
+                            <a href="https://iryan.kr/t8gcwsoeau" target="_blank">
+                                <img src="http://img.tenping.kr/Content/Upload/Images/2025110410090001_Dis_20251104100958.jpg" width="100%" style="width:100%; height:auto; border-radius:0;" alt="">
+                            </a>
+                        </div>
+                        <div style="margin:10px;">
+                            <div style="margin:5px 0; color:#333; font-size:16px; line-height:1.4em; height:2.6em; display:-webkit-box; text-overflow:ellipsis; -webkit-line-clamp:2; -webkit-box-orient:vertical; word-wrap:break-word; font-weight:300; text-align:left; overflow:hidden; max-width:400px;">
+                                의사가 설계한 맞춤형 건강기능식품 메디콕
+                            </div>
+                        </div>
+                        <div style="width:100%; margin:20px 0 5px; background-color:#f5fbff; text-align:left;">
+                            <a href="https://iryan.kr/t8gcwsoeau" target="_blank" style="text-decoration:none; display:block;">
+                                <div style="padding:17px 0; background-color:#dcf3ff;">
+                                    <div style="line-height:1.4; margin:0; padding:0 0 0 20px; color:#234f83; font-size:21px; font-weight:300; display:inline-block;">상담 신청하기</div>
+                                    <div style="margin-right:20px; margin-top:-6px; float:right; display:inline-block; color:#234f83; font-size:30px; font-weight:300;">»</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- 실제 애드센스 광고 단위 코드 (승인 전에는 이대로 두세요) -->
-            <!-- 
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-4633321310054654"
-                 data-ad-slot="여기에_광고단위_번호_입력"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            -->
+            <p class="text-center text-xs font-bold text-gray-500 mt-2">
+                ※ 소문내기 활동을 하면서 해당 광고업체로부터 경제적 대가를 받기로 하였습니다.
+            </p>
         </div>
 
         <!-- 🏆 하루 한 번! 오늘의 필수 투표 -->
@@ -233,9 +243,23 @@
             </a>
         </section>
 
-        <!-- 수익화 2 (쿠팡 파트너스 배너 - 랜덤 스크립트) -->
-        <section class="px-5 mb-12" id="coupang-banner-container">
-            <!-- 자바스크립트에 의해 랜덤 배너가 여기에 삽입됩니다 -->
+        <!-- 수익화 2 (쿠팡 인플루언서 샵 배너) -->
+        <section class="mb-12 text-center">
+            <h2 class="text-2xl font-extrabold text-gray-800 mb-5">🛒 파라다이스 전용 특별 상점</h2>
+            <div class="px-5">
+                <a href="https://influencers.coupang.com/s/paradisehero" target="_blank"
+                    class="block w-full bg-gradient-to-r from-[#D9381E] to-[#FF5E00] text-white px-2 py-8 rounded-2xl shadow-xl animate-pulse active:scale-95 transition-transform text-center relative overflow-hidden">
+                    <span class="text-[22px] md:text-[26px] font-extrabold drop-shadow-md leading-tight">
+                        황영웅 공식 음반부터<br>시니어 맞춤 건강/생활용품 총집합!
+                    </span>
+                    <p class="text-xl font-bold mt-4 text-[#FFD700] drop-shadow-md">
+                        👉 여기를 눌러서 구경해보세요 👈
+                    </p>
+                </a>
+                <p class="text-center text-sm font-bold text-red-500 mt-3 break-keep">
+                    ※ "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
+                </p>
+            </div>
         </section>
 
         <!-- 푸터 -->
@@ -284,40 +308,9 @@
             updateSlide();
         }
 
-        // --- 쿠팡 파트너스 시니어 맞춤형 랜덤 상품 스크립트 ---
-        const coupangProducts = [
-            { link: "https://link.coupang.com/a/dPFpaJ", text: "🎁 눈 침침할 때 최고!<br>루테인 영양제 특가 보기", bg: "bg-[#FFD700]", textColor: "text-[#00563F]" },
-            { link: "https://link.coupang.com/a/dRCBMs", text: "💪 관절 무릎을 위한<br>프리미엄 무릎 보호대", bg: "bg-[#4CAF50]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCEN3", text: "🔥 기력 회복엔 역시<br>6년근 홍삼 스틱 특가", bg: "bg-[#D32F2F]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCGgM", text: "💆‍♀️ 뻐근한 어깨와 목에<br>시원한 안마기/마사지기", bg: "bg-[#2196F3]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCHox", text: "✨ 젊어지는 비결!<br>새치 커버 간편 염색약", bg: "bg-[#9C27B0]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCItd", text: "👟 발이 편안한<br>시니어 기능성 푹신한 신발", bg: "bg-[#FF9800]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCJiV", text: "🦷 튼튼한 치아와 잇몸!<br>시니어 전용 치약 특가", bg: "bg-[#00BCD4]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCKcZ", text: "💤 꿀잠 보장!<br>숙면을 위한 경추 베개", bg: "bg-[#673AB7]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCLjz", text: "🥣 입맛 없을 땐!<br>영양 만점 간편 영양식", bg: "bg-[#FF5722]", textColor: "text-white" },
-            { link: "https://link.coupang.com/a/dRCL59", text: "🦯 안전한 외출 필수품!<br>튼튼한 접이식 지팡이", bg: "bg-[#795548]", textColor: "text-white" }
-        ];
-
-        function renderRandomCoupang() {
-            const randomProduct = coupangProducts[Math.floor(Math.random() * coupangProducts.length)];
-            const container = document.getElementById("coupang-banner-container");
-            if (container) {
-                container.innerHTML = `
-                    <a href="${randomProduct.link}" class="block w-full ${randomProduct.bg} ${randomProduct.textColor} px-4 py-8 rounded-2xl shadow-md animate-pulse active:scale-95 transition-transform text-center mb-3">
-                        <span class="text-2xl font-extrabold">${randomProduct.text}</span>
-                    </a>
-                    <p class="text-center text-sm font-bold text-red-500 break-keep">
-                        ※ "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."
-                    </p>
-                `;
-            }
-        }
-
         // 페이지 로드 시 초기 화면 설정
         document.addEventListener("DOMContentLoaded", () => {
             updateSlide();
-            // 애드센스 승인을 위해 임시로 쿠팡 파트너스 배너 비활성화 (승인 후 다시 주석 해제)
-            // renderRandomCoupang();
         });
 
         // 카카오톡 (Web Share API) 공유 기능
