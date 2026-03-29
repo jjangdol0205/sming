@@ -67,14 +67,17 @@ function processHtmlFile(filePath, relativeUrl) {
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="${description}">
-    <meta property="og:image" content="${baseUrl}/assets/og-image.jpg">
+    <meta property="og:image" content="${baseUrl}/assets/og-image.jpg?v=2">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="${canonicalUrl}">
     <meta property="twitter:title" content="${title}">
     <meta property="twitter:description" content="${description}">
-    <meta property="twitter:image" content="${baseUrl}/assets/og-image.jpg">
+    <meta property="twitter:image" content="${baseUrl}/assets/og-image.jpg?v=2">
+
+    <!-- 카카오 SDK 연동 -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" crossorigin="anonymous"></script>
 `;
 
     if (content.includes('</head>')) {
