@@ -314,33 +314,65 @@
         });
 
         // 카카오 공식 SDK 초기화
-        if (!Kakao.isInitialized()) {
-            Kakao.init('c533b9573ef021f5808a6fc5a8273533');
+        try {
+            if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+                Kakao.init('c533b9573ef021f5808a6fc5a8273533');
+            }
+        } catch (e) {
+            console.error("Kakao Init Error", e);
         }
 
         // 카카오링크 (버튼형 공유 카드) 전송 기능
         function shareKakao() {
-            Kakao.Share.sendDefault({
-              objectType: 'feed',
-              content: {
-                title: '김쌤과 함께하는 파라다이스 통합 응원방 오픈!',
-                description: '가수님을 위한 필수 투표와 스밍을 이곳에 모두 모았습니다. 스마트폰이 서툴러도 1초면 끝! 편하게 매일 출석 체크해요~',
-                imageUrl: 'https://paradise-hero.com/assets/og-image.jpg?v=2',
-                link: {
-                  mobileWebUrl: 'https://paradise-hero.com',
-                  webUrl: 'https://paradise-hero.com',
-                },
-              },
-              buttons: [
-                {
-                  title: '👉 오늘의 미션(투표/스밍) 하러가기',
-                  link: {
-                    mobileWebUrl: 'https://paradise-hero.com',
-                    webUrl: 'https://paradise-hero.com',
+            try {
+                if (typeof Kakao === 'undefined') {
+                    alert('카카오 시스템 로딩 중이거나 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+                    return fallbackShare();
+                }
+
+                if (!Kakao.isInitialized()) {
+                    Kakao.init('c533b9573ef021f5808a6fc5a8273533');
+                }
+
+                Kakao.Share.sendDefault({
+                  objectType: 'feed',
+                  content: {
+                    title: '김쌤과 함께하는 파라다이스 통합 응원방 오픈!',
+                    description: '가수님을 위한 필수 투표와 스밍을 이곳에 모두 모았습니다. 스마트폰이 서툴러도 1초면 끝! 편하게 매일 출석 체크해요~',
+                    imageUrl: 'https://paradise-hero.com/assets/og-image.jpg?v=2',
+                    link: {
+                      mobileWebUrl: 'https://paradise-hero.com',
+                      webUrl: 'https://paradise-hero.com',
+                    },
                   },
-                },
-              ],
-            });
+                  buttons: [
+                    {
+                      title: '👉 오늘의 미션(투표/스밍) 하러가기',
+                      link: {
+                        mobileWebUrl: 'https://paradise-hero.com',
+                        webUrl: 'https://paradise-hero.com',
+                      },
+                    },
+                  ],
+                });
+            } catch (e) {
+                alert('카카오 공유 기능에 일시적인 오류가 있습니다: ' + e.message);
+                fallbackShare();
+            }
+        }
+
+        function fallbackShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '김쌤과 함께하는 파라다이스 매일 응원방',
+                    text: '황영웅님을 위한 투표와 유용한 시니어 정보가 가득한 이곳으로 오세요!',
+                    url: window.location.href,
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('인터넷 주소가 복사되었습니다!\n카카오톡 대화방 입력창을 길게 눌러 "붙여넣기" 해주세요.');
+                });
+            }
         }
     </script>
 </body>
