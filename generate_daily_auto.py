@@ -10,7 +10,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
 
 BLOG_DIR = "blog"
-BLOG_LIST = "blog_list.html"
+BLOG_LIST = "index.html"
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="ko">
@@ -68,7 +68,7 @@ TEMPLATE = """<!DOCTYPE html>
 
         <a href="../index.html"
             class="block w-full bg-[#00563F] text-white text-center font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform mt-auto text-2xl">
-            🔙 김쌤의 스밍 포털 메인으로 돌아가기
+            🔙 시니어 꿀팁 포털 메인으로 돌아가기
         </a>
 
     </main>
@@ -126,12 +126,15 @@ def build_prompt(keyword, blogType):
 - 작성 기준 연도: 무조건 {currentYear}년 (절대로 과거 연도를 출력하지 마세요)
 
 [공통 필수 준수 가이드]
-1. 분량과 깊이: 공백 제외 800자 ~ 1,000자 내외로 모바일 환경에서 빠르고 쉽게 읽을 수 있도록 핵심만 간략하고 명쾌하게 작성하세요.
-2. 클릭을 유도하는 극도의 후킹형 블로그 제목 작성: 25자 이내로 최대한 짧게 작성하세요. 기호나 숫자로 눈길을 끄세요.
-3. 가독성을 극대화하는 세련된 구조 (100% HTML 태그):
-   - 문단은 항상 <p style='margin-bottom: 26px; color: #333;'> 로 감싸기.
-   - 대주제 예시: <h2 style='font-size: 24px; font-weight: 800; color: #111; margin-top: 70px; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 2px solid #111;'>...</h2>
-   - 마크다운(##, **, 등) 절대 사용 금지! 오직 HTML 코드만 출력하세요.
+1. 분량과 깊이: 구글 애드센스 전문성(E-E-A-T) 요건을 충족하도록 공백 제외 최소 1,500글자 ~ 2,000글자 이상으로 전문적이고 깊이 있게 최대한 길게 작성하세요.
+2. 클릭을 유도하는 극도의 후킹형 블로그 제목 작성: 25자 이내로 최대한 짧게 지정하세요.
+3. 태그와 구조의 다양성: 기계식 반복 편성을 탈피하기 위해 <blockquote>(인용구), <ul>과 <li>(글머리 기호), <strong>(강조) 등 다양한 HTML 태그를 의도적으로 섞어 써서 풍부하고 전문적인 칼럼 형태를 만드세요.
+4. 가독성을 극대화하는 세련된 구조 (100% HTML 태그):
+   - 문단은 항상 <p style='margin-bottom: 26px; color: #333; line-height: 1.8;'> 로 감싸기.
+   - 대주제 예시: <h2 style='font-size: 24px; font-weight: 800; color: #111; margin-top: 50px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #111;'>...</h2>
+   - 소주제 예시: <h3 style='font-size: 20px; font-weight: bold; color: #333; margin-top: 30px; margin-bottom: 15px;'>...</h3>
+   - 리스트 예시: <ul style='margin-bottom: 26px; margin-left: 20px; list-style-type: disc;'><li>...</li></ul>
+   - 마크다운(##, **, 등) 절대 사용 금지! 오직 브라우저에서 바로 렌더링 가능한 순수 HTML 태그만 출력하세요.
 
 [출력 형식 제한]
 반드시 아래 특수 구분자를 사용하세요.
