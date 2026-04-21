@@ -66,8 +66,22 @@ TEMPLATE = """<!DOCTYPE html>
             {content}
         </article>
 
+        <!-- 저자 소개 및 편집자 선언 (E-E-A-T 확보) -->
+        <div class="mt-12 bg-gray-50 border border-gray-200 rounded-2xl p-5 shadow-sm text-sm text-gray-700 leading-relaxed">
+            <h4 class="font-extrabold text-gray-900 mb-2 flex items-center gap-2">
+                <span class="text-xl">✍️</span> 저자 소개 : 김쌤
+            </h4>
+            <p class="mb-3">
+                대한민국 5070 시니어들의 건강한 삶과 경제적 자립을 위해 꼭 필요한 꿀팁만을 엄선하여 전달하는 시니어 라이프스타일 큐레이터입니다.
+            </p>
+            <div class="border-t border-gray-300 pt-3 text-xs text-gray-500">
+                <strong>[콘텐츠 편집 및 면책 조항]</strong><br>
+                본 포스팅은 김쌤의 기획 및 철저한 사실 확인을 바탕으로 작성되었으며, 독자들의 이해를 돕기 위해 AI 기술의 보조를 받아 초안이 작성 및 윤문되었습니다. 본 글에 포함된 의학, 건강, 경제 관련 정보는 일반적인 정보 제공을 목적으로 하며, 전문적인 의학적 진단이나 재무 상담을 대신할 수 없습니다. 개별적인 증상이나 상황에 대해서는 반드시 관련 전문가(의사, 세무사 등)와 상담하시기 바랍니다.
+            </div>
+        </div>
+
         <a href="../index.html"
-            class="block w-full bg-[#00563F] text-white text-center font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform mt-auto text-2xl">
+            class="block w-full bg-[#00563F] text-white text-center font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform mt-8 text-2xl">
             🔙 시니어 꿀팁 포털 메인으로 돌아가기
         </a>
 
@@ -293,6 +307,14 @@ def main():
         time.sleep(2) # To avoid rate limits
         curr_num += 1
         
+    # Run post-processing (migrate_posts.py) to add images, related posts, and footer
+    print("Running post-processing (migrate_posts.py)...")
+    try:
+        subprocess.run(["python", "migrate_posts.py"], check=True)
+        print("Post-processing completed successfully.")
+    except Exception as e:
+        print(f"Failed to run migrate_posts.py: {e}")
+
     # Run SEO and Sitemap scripts
     print("Running SEO and Sitemap generation scripts...")
     try:
