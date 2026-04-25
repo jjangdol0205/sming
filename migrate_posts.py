@@ -36,9 +36,13 @@ def migrate():
                 content = f.read()
 
             # Skip if already migrated (check for the new footer or image)
-            if 'loremflickr.com' in content and '저자 소개' in content and '관련 꿀팁' in content:
+            if 'loremflickr.com' in content and '저자 소개' in content and '관련 꿀팁' in content and 'PartnersCoupang.G' in content:
                 print(f"Skipping {filename}, already migrated.")
                 continue
+
+            # Remove AdSense script
+            adsense_pattern = r'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js[^>]*>\s*</script>'
+            content = re.sub(adsense_pattern, '', content)
 
             # 1. Determine category keyword for the image based on title or random
             post_num = filename.replace('post', '').replace('.html', '')
@@ -80,7 +84,33 @@ def migrate():
         </div>
 """
             if '저자 소개 및 편집자 선언' not in content:
-                content = content.replace('</article>', '</article>' + eeat_block)
+                content = content.replace('</article>', '</article>\n' + eeat_block)
+
+            # Insert Coupang Banner
+            coupang_banner = """
+        <!-- 쿠팡 파트너스 다이나믹 배너 -->
+        <div class="mt-8 mb-4 flex justify-center">
+            <script src="https://ads-partners.coupang.com/g.js"></script>
+            <script>
+                new PartnersCoupang.G({"id":983781,"template":"carousel","trackingCode":"AF7865143","width":"680","height":"140","tsource":""});
+            </script>
+        </div>
+        <p class="text-[11px] text-gray-400 text-center mb-8">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+"""
+            if 'PartnersCoupang.G' not in content:
+                # Insert it right before the "추천 글" or if "추천 글" doesn't exist yet, we will insert it right after the eeat_block.
+                # Actually, EEAT block is already inserted above. We can just append Coupang banner after EEAT block.
+                # Find the closing div of EEAT block, or simpler: replace EEAT block with EEAT block + Coupang
+                pass # We will do it robustly:
+                if '<!-- 추천 글 -->' in content:
+                    content = content.replace('<!-- 추천 글 -->', coupang_banner + '\n        <!-- 추천 글 -->')
+                elif '저자 소개 및 편집자 선언' in content:
+                    # In case it was just inserted, we can just find the back button and insert before it.
+                    back_button_pattern = r'<a href="\.\./index\.html"[^>]*>.*?</a>'
+                    match = re.search(back_button_pattern, content, re.DOTALL)
+                    if match:
+                        content = content[:match.start()] + coupang_banner + content[match.start():]
+
 
             # 4. Insert Related Posts
             if '🔥 김쌤이 추천하는 관련 꿀팁 글' not in content:

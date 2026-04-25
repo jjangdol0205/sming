@@ -44,8 +44,7 @@ TEMPLATE = """<!DOCTYPE html>
             font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
         }}
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4633321310054654"
-        crossorigin="anonymous"></script>
+    <!-- 수익화: 쿠팡 파트너스 다이나믹 배너 적용됨 -->
 
     <!-- SEO Meta Tags will be added later -->
 </head>
