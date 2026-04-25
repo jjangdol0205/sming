@@ -10,7 +10,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
 
 BLOG_DIR = "blog"
-BLOG_LIST = "index.html"
+BLOG_LIST = "blog_list.html"
 
 TEMPLATE = """<!DOCTYPE html>
 <html lang="ko">
