@@ -65,19 +65,27 @@ TEMPLATE = """<!DOCTYPE html>
             {content}
         </article>
 
-        <!-- 저자 소개 및 편집자 선언 (E-E-A-T 확보) -->
-        <div class="mt-12 bg-gray-50 border border-gray-200 rounded-2xl p-5 shadow-sm text-sm text-gray-700 leading-relaxed">
-            <h4 class="font-extrabold text-gray-900 mb-2 flex items-center gap-2">
-                <span class="text-xl">✍️</span> 저자 소개 : 김쌤
-            </h4>
-            <p class="mb-3">
-                대한민국 5070 시니어들의 건강한 삶과 경제적 자립을 위해 꼭 필요한 꿀팁만을 엄선하여 전달하는 시니어 라이프스타일 큐레이터입니다.
-            </p>
-            <div class="border-t border-gray-300 pt-3 text-xs text-gray-500">
-                <strong>[콘텐츠 편집 및 면책 조항]</strong><br>
-                본 포스팅은 김쌤의 기획 및 철저한 사실 확인을 바탕으로 작성되었으며, 독자들의 이해를 돕기 위해 AI 기술의 보조를 받아 초안이 작성 및 윤문되었습니다. 본 글에 포함된 의학, 건강, 경제 관련 정보는 일반적인 정보 제공을 목적으로 하며, 전문적인 의학적 진단이나 재무 상담을 대신할 수 없습니다. 개별적인 증상이나 상황에 대해서는 반드시 관련 전문가(의사, 세무사 등)와 상담하시기 바랍니다.
+        <!-- 쿠팡 파트너스 다이나믹 배너 (강력한 후원 명분 추가) -->
+        <section class="mt-12 mb-4 px-2 flex justify-center flex-col items-center">
+            <div class="w-full bg-[#FFF3E0] border-2 border-[#FFB300] rounded-2xl p-4 mb-4 text-center shadow-md animate-pulse">
+                <p class="text-lg font-extrabold text-[#D84315] mb-1">🎁 파라다이스 응원방 후원하기 (비용 0원)</p>
+                <p class="text-sm font-bold text-gray-700 leading-snug">
+                    팬님들! 평소 필요하신 <span class="text-[#00563F]">생수나 휴지를 아래 배너를 눌러서 쿠팡에서 구매해 주시면</span> 응원방 운영에 큰 힘이 됩니다! (팬님 추가 비용 없음)
+                </p>
             </div>
-        </div>
+            <script src="https://ads-partners.coupang.com/g.js"></script>
+            <script>
+                new PartnersCoupang.G({{"id":983781,"template":"carousel","trackingCode":"AF7865143","width":"680","height":"140","tsource":""}});
+            </script>
+            <!-- 오늘의 골드박스 특가 버튼 -->
+            <a href="https://influencers.coupang.com/s/paradisehero" target="_blank"
+                class="mt-5 w-full bg-gradient-to-r from-[#FF0000] to-[#FF5E00] text-white text-xl font-extrabold py-4 rounded-xl shadow-lg active:scale-95 transition-transform block text-center">
+                ⏰ 놓치면 후회하는 쿠팡 오늘의 반값 특가
+            </a>
+            <p class="text-center text-[11px] font-bold text-gray-400 mt-3 break-keep">
+                ※ 이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+            </p>
+        </section>
 
         <a href="../index.html"
             class="block w-full bg-[#00563F] text-white text-center font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform mt-8 text-2xl">
@@ -139,14 +147,12 @@ def build_prompt(keyword, blogType):
 - 작성 기준 연도: 무조건 {currentYear}년 (절대로 과거 연도를 출력하지 마세요)
 
 [공통 필수 준수 가이드]
-1. 분량과 깊이: 구글 애드센스 전문성(E-E-A-T) 요건을 충족하도록 공백 제외 최소 1,500글자 ~ 2,000글자 이상으로 전문적이고 깊이 있게 최대한 길게 작성하세요.
-2. 클릭을 유도하는 극도의 후킹형 블로그 제목 작성: 25자 이내로 최대한 짧게 지정하세요.
-3. 태그와 구조의 다양성: 기계식 반복 편성을 탈피하기 위해 <blockquote>(인용구), <ul>과 <li>(글머리 기호), <strong>(강조) 등 다양한 HTML 태그를 의도적으로 섞어 써서 풍부하고 전문적인 칼럼 형태를 만드세요.
+1. 분량과 깊이: 모바일 환경에서 지루하지 않게 읽고 바로 아래 배너를 클릭할 수 있도록 공백 제외 400자 ~ 600자 내외로 매우 짧고 임팩트 있게 작성하세요.
+2. 후원 유도 멘트 필수: 글의 마지막 문단에는 반드시 "글 하단의 골드박스 특가 링크를 누르시거나 쿠팡 배너를 통해 생수, 휴지를 구입해 주시면 우리 응원방에 큰 힘이 됩니다!"라는 문구를 자연스럽게 포함하세요.
+3. 클릭을 유도하는 극도의 후킹형 블로그 제목 작성: 25자 이내로 최대한 짧고 자극적으로 지정하세요.
 4. 가독성을 극대화하는 세련된 구조 (100% HTML 태그):
-   - 문단은 항상 <p style='margin-bottom: 26px; color: #333; line-height: 1.8;'> 로 감싸기.
-   - 대주제 예시: <h2 style='font-size: 24px; font-weight: 800; color: #111; margin-top: 50px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #111;'>...</h2>
-   - 소주제 예시: <h3 style='font-size: 20px; font-weight: bold; color: #333; margin-top: 30px; margin-bottom: 15px;'>...</h3>
-   - 리스트 예시: <ul style='margin-bottom: 26px; margin-left: 20px; list-style-type: disc;'><li>...</li></ul>
+   - 문단은 항상 <p style='margin-bottom: 26px; color: #333; line-height: 1.8; font-weight: bold;'> 로 감싸서 큼직하고 시원하게 보이게 하세요.
+   - 대주제 예시: <h2 style='font-size: 24px; font-weight: 900; color: #D84315; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px dashed #D84315;'>...</h2>
    - 마크다운(##, **, 등) 절대 사용 금지! 오직 브라우저에서 바로 렌더링 가능한 순수 HTML 태그만 출력하세요.
 
 [출력 형식 제한]
