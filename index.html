@@ -166,17 +166,17 @@
             <h2 class="text-2xl font-extrabold text-gray-800 mb-5">🏆 하루 한 번! 오늘의 필수 투표</h2>
             <div class="flex flex-col items-center gap-4 w-full">
                 <!-- 트롯스타 투표 바로가기 -->
-                <a href="https://trotstar.net/" target="_blank"
+                <a href="https://trotstar.net/" onclick="event.preventDefault(); openModal('https://trotstar.net/')" target="_blank"
                     class="w-11/12 bg-[#00563F] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     트롯스타 투표 바로가기
                 </a>
                 <!-- 팬앤스타 투표 바로가기 -->
-                <a href="https://fannstar.tf.co.kr/stars/community/823" target="_blank"
+                <a href="https://fannstar.tf.co.kr/stars/community/823" onclick="event.preventDefault(); openModal('https://fannstar.tf.co.kr/stars/community/823')" target="_blank"
                     class="w-11/12 bg-[#00563F] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     팬앤스타 투표 바로가기
                 </a>
                 <!-- 네티즌어워즈 투표 바로가기 -->
-                <a href="https://www.cbci.co.kr/survey" target="_blank"
+                <a href="https://www.cbci.co.kr/survey" onclick="event.preventDefault(); openModal('https://www.cbci.co.kr/survey')" target="_blank"
                     class="w-11/12 bg-[#00563F] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     네티즌어워즈 투표 바로가기
                 </a>
@@ -188,7 +188,7 @@
             <h2 class="text-2xl font-extrabold text-gray-800 mb-5">🌟 황영웅 공식 팬카페</h2>
             <div class="flex flex-col items-center gap-4 w-full">
                 <!-- 파라다이스 팬카페 바로가기 -->
-                <a href="https://cafe.naver.com/hero7" target="_blank"
+                <a href="https://cafe.naver.com/hero7" onclick="event.preventDefault(); openModal('https://cafe.naver.com/hero7')" target="_blank"
                     class="w-11/12 bg-[#03C75A] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     파라다이스 팬카페 바로가기
                 </a>
@@ -200,12 +200,12 @@
             <h2 class="text-2xl font-extrabold text-gray-800 mb-5">📺 공식 유튜브 채널</h2>
             <div class="flex flex-col items-center gap-4 w-full">
                 <!-- 황영웅 공식 유튜브 -->
-                <a href="https://www.youtube.com/@goldenvoice94" target="_blank"
+                <a href="https://www.youtube.com/@goldenvoice94" onclick="event.preventDefault(); openModal('https://www.youtube.com/@goldenvoice94')" target="_blank"
                     class="w-11/12 bg-[#FF0000] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     황영웅 공식 유튜브
                 </a>
                 <!-- 김쌤의 영웅 라디오 -->
-                <a href="https://www.youtube.com/@%EA%B9%80%EC%8C%A4%EC%9D%98%EC%98%81%EC%9B%85%EB%9D%BC%EB%94%94%EC%98%A4"
+                <a href="https://www.youtube.com/@%EA%B9%80%EC%8C%A4%EC%9D%98%EC%98%81%EC%9B%85%EB%9D%BC%EB%94%94%EC%98%A4" onclick="event.preventDefault(); openModal('https://www.youtube.com/@%EA%B9%80%EC%8C%A4%EC%9D%98%EC%98%81%EC%9B%85%EB%9D%BC%EB%94%94%EC%98%A4')"
                     target="_blank"
                     class="w-11/12 bg-[#FF0000] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     김쌤의 영웅 라디오
@@ -218,12 +218,12 @@
             <h2 class="text-2xl font-extrabold text-gray-800 mb-5">🎵 노래 듣기가 최고의 응원입니다</h2>
             <div class="flex flex-col items-center gap-4 w-full">
                 <!-- 멜론 노래 바로 틀기 -->
-                <a href="https://m2.melon.com/artist/detail.htm?artistId=3180539" target="_blank"
+                <a href="https://m2.melon.com/artist/detail.htm?artistId=3180539" onclick="event.preventDefault(); openModal('https://m2.melon.com/artist/detail.htm?artistId=3180539')" target="_blank"
                     class="w-11/12 bg-[#00A862] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     멜론 노래 바로 틀기
                 </a>
                 <!-- 지니 노래 바로 틀기 -->
-                <a href="https://www.genie.co.kr/detail/artistInfo?xxnm=81685290" target="_blank"
+                <a href="https://www.genie.co.kr/detail/artistInfo?xxnm=81685290" onclick="event.preventDefault(); openModal('https://www.genie.co.kr/detail/artistInfo?xxnm=81685290')" target="_blank"
                     class="w-11/12 bg-[#009DFF] text-white text-2xl font-extrabold py-5 rounded-2xl shadow-lg active:scale-95 transition-transform block">
                     지니 노래 바로 틀기
                 </a>
@@ -276,16 +276,6 @@
 
 
         <!-- 수익화 2 (쿠팡 인플루언서 샵 배너) -->
-        <section class="mb-12 text-center">
-            <h2 class="text-2xl font-extrabold text-[#00563F] mb-1">🛒 파라다이스 전용 안심 상점</h2>
-            <p class="text-sm font-bold text-gray-600 mb-4">🎵 우리 가수님 노래 들으면서 편안하게 안전 쇼핑하세요!</p>
-            <div class="px-5">
-                <a href="https://influencers.coupang.com/s/paradisehero" target="_blank"
-                    class="block w-full bg-gradient-to-r from-[#D9381E] to-[#FF5E00] text-white px-2 py-8 rounded-2xl shadow-xl animate-pulse active:scale-95 transition-transform text-center relative overflow-hidden">
-                    <span class="text-[22px] md:text-[26px] font-extrabold drop-shadow-md leading-tight">
-                        황영웅 공식 음반부터<br>시니어 맞춤 건강/생활용품 총집합!
-                    </span>
-                    <p class="text-xl font-bold mt-4 text-[#FFD700] drop-shadow-md">
                         👉 여기를 눌러서 구경해보세요 👈
                     </p>
                 </a>
@@ -424,6 +414,101 @@
             }
         }
     </script>
-</body>
+    <!-- 전면광고 모달 -->
+    <div id="interstitial-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black bg-opacity-80 px-4">
+        <div class="bg-[#FFF5F5] rounded-2xl w-full max-w-md p-5 text-center shadow-2xl relative border-4 border-[#00563F]">
+            <h2 class="text-2xl font-extrabold text-[#00563F] mb-1">⏳ 투표소 입장 준비 중...</h2>
+            <p class="text-sm text-gray-700 mb-3 font-bold">잠시만 기다려주세요. (약 <span id="countdown" class="text-red-500 font-extrabold text-lg">3</span>초)</p>
+            
+            <div class="bg-white rounded-xl p-3 border-2 border-red-200 mb-2 shadow-sm">
+                <p class="text-[13px] font-bold text-[#D84315] leading-snug">
+                    입장 대기 시간 동안 꼭 필요한 생필품을 확인해 보세요!<br>
+                    (구경만 하셔도 파라다이스 운영에 큰 힘이 됩니다 🙇‍♂️)
+                </p>
+            </div>
 
+            <!-- COUPANG_GOLDBOX_START -->
+<div class="flex flex-col gap-3 w-full my-4">
+
+        <a href="https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7958974&itemId=20493837289&vendorItemId=3000260906&traceid=V0-143-2d25f09476b2dcfc" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
+            <img src="https://img5c.coupangcdn.com/image/retail/images/261218040499787-b954ff07-8bd7-4302-8f14-eb2fa31628fb.jpg" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
+            <div class="flex flex-col justify-center flex-grow text-left">
+                <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
+                <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">신라면 120g</span>
+                <span class="text-base font-extrabold text-[#D84315] mt-1">15,790.0원</span>
+            </div>
+        </a>
+        
+        <a href="https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8548508229&itemId=21436080703&vendorItemId=84095676789&traceid=V0-143-ff37ad35591c9c7c" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
+            <img src="https://image10.coupangcdn.com/image/retail/images/1423721803262108-18b9773d-b5e2-4ccc-b3c7-cb3ed11ad1af.jpg" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
+            <div class="flex flex-col justify-center flex-grow text-left">
+                <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
+                <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">베베앙 120 유아물티슈 캡형</span>
+                <span class="text-base font-extrabold text-[#D84315] mt-1">11,990.0원</span>
+            </div>
+        </a>
+        
+        <a href="https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7821562659&itemId=21246415266&vendorItemId=71742350634&traceid=V0-143-3db500e1c452df4a" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
+            <img src="https://image6.coupangcdn.com/image/retail/images/391972988229062-bbdb0c4e-dcbd-4c18-843c-6a4a258f5ff0.jpg" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
+            <div class="flex flex-col justify-center flex-grow text-left">
+                <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
+                <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">뉴케어 정품 액티브 오리지널</span>
+                <span class="text-base font-extrabold text-[#D84315] mt-1">51,610.0원</span>
+            </div>
+        </a>
+        </div>
+<!-- COUPANG_GOLDBOX_END -->
+
+            <button id="modal-proceed-btn" disabled class="w-full bg-gray-300 text-gray-500 text-xl font-extrabold py-4 rounded-xl shadow-sm mt-3 transition-colors">
+                잠시만 기다려주세요...
+            </button>
+            <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let targetUrl = '';
+        let timer = null;
+        
+        function openModal(url) {
+            targetUrl = url;
+            const modal = document.getElementById('interstitial-modal');
+            const proceedBtn = document.getElementById('modal-proceed-btn');
+            const countdownEl = document.getElementById('countdown');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            let timeLeft = 3;
+            countdownEl.innerText = timeLeft;
+            proceedBtn.disabled = true;
+            proceedBtn.className = "w-full bg-gray-300 text-gray-500 text-xl font-extrabold py-4 rounded-xl shadow-sm mt-3 transition-colors";
+            proceedBtn.innerText = "잠시만 기다려주세요...";
+            
+            timer = setInterval(() => {
+                timeLeft -= 1;
+                countdownEl.innerText = timeLeft;
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    proceedBtn.disabled = false;
+                    proceedBtn.className = "w-full bg-[#00563F] text-white text-xl font-extrabold py-4 rounded-xl shadow-lg active:scale-95 transition-transform mt-3";
+                    proceedBtn.innerText = "👉 투표소 / 재생화면 입장하기";
+                    proceedBtn.onclick = () => {
+                        window.open(targetUrl, '_blank');
+                        closeModal();
+                    };
+                }
+            }, 1000);
+        }
+        
+        function closeModal() {
+            if(timer) clearInterval(timer);
+            const modal = document.getElementById('interstitial-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+    </script>
+</body>
 </html>

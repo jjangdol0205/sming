@@ -1,5 +1,7 @@
 import os
 import time
+import datetime
+import random
 import re
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -24,19 +26,38 @@ def generate_community_post():
         return None
 
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    
+    # temperature를 올려서 창의성과 다양성 극대화
+    model = genai.GenerativeModel('gemini-2.5-flash', generation_config={"temperature": 0.9})
+    
+    now = datetime.datetime.now()
+    time_str = now.strftime("%Y년 %m월 %d일 %H시 %M분")
+    
+    # 매번 다른 스타일의 글이 나오도록 랜덤 콘셉트 부여
+    concepts = [
+        "영웅님의 노래 한 구절이나 무대를 회상하며 감동적으로 시작하기",
+        "건강에 대한 유머러스하고 친근한 조언(물 마시기, 스트레칭 등)으로 시작하기",
+        "현재 날씨나 계절감(햇살, 바람 등)을 한 편의 시처럼 구체적으로 묘사하며 시작하기",
+        "팬덤 파라다이스의 단합력과 사랑을 칭찬하며 텐션을 높이는 느낌으로 시작하기",
+        "따뜻한 차나 식사를 챙기셨는지 물으며 다정하고 편안하게 시작하기"
+    ]
+    concept = random.choice(concepts)
     
     prompt = f"""
     당신은 가수 황영웅님을 열렬히 응원하는 5070 시니어 팬덤의 리더 '김쌤'입니다.
     오늘 유튜브 커뮤니티 게시판에 올릴 짧고 감동적인 응원 멘트를 작성해주세요.
     
+    [현재 시간]: {time_str}
+    [오늘의 특별 작성 콘셉트]: {concept}
+    
     [조건]
-    1. 황영웅님에 대한 열정적인 응원, 날씨나 계절에 맞는 따뜻한 아침 인사, 건강 당부 등을 포함할 것.
-    2. 글 마지막에는 반드시 아래 문구와 링크를 자연스럽게 포함할 것:
+    1. 위의 [오늘의 특별 작성 콘셉트]를 무조건 글의 첫 부분에 강하게 반영하여, 매번 똑같은 패턴의 인사("선배님들 안녕하세요~" 등)를 절대 피할 것!
+    2. 글 중간에 황영웅님에 대한 열정적인 응원을 자연스럽게 녹여낼 것.
+    3. 글 마지막에는 반드시 아래 문구와 링크를 포함할 것:
        "👇 오늘의 필수 스밍 미션 및 쿠팡 반값 특가 보러가기 👇"
        "{SITE_URL}"
-    3. 길이는 3~5문장 정도로 너무 길지 않게 작성.
-    4. 친근하고 예의 바른 '해요체/합쇼체' 사용. 이모티콘(🎵, 💚, ☕ 등) 적절히 사용.
+    4. 길이는 4~6문장 정도로 짧고 임팩트 있게 작성.
+    5. 친근하고 예의 바른 '해요체/합쇼체' 사용. 이모티콘(🎵, 💚, ☕ 등) 적절히 섞어쓰기.
     """
     
     print("AI 멘트 생성 중...")

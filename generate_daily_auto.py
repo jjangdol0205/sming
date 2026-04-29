@@ -4,6 +4,10 @@ import os
 import json
 import subprocess
 import time
+import datetime
+import urllib.request
+import coupang_api
+from urllib.error import HTTPError
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 genai.configure(api_key=GEMINI_API_KEY)
@@ -333,6 +337,9 @@ def main():
         print("Sitemap generated successfully.")
     except Exception as e:
         print(f"Failed to run build_sitemap.js: {e}")
+        
+    print("Fetching Coupang Goldbox Deals...")
+    coupang_api.update_index_html()
         
     print("All tasks completed.")
 
