@@ -31,7 +31,7 @@ def get_goldbox_deals():
         data = response.json()
         if data.get("rCode") == "0" and "data" in data:
             products = data["data"]
-            return products[:3]
+            return products[:30]
         else:
             print("Coupang API Error:", data)
             return []
@@ -43,23 +43,56 @@ def generate_html_snippet(products):
     if not products:
         return ""
     
-    html = '<div class="flex flex-col gap-3 w-full my-4">\n'
+    import json
+    js_products = []
     for p in products:
-        name = p.get('productName', '')
-        price = p.get('productPrice', 0)
-        image = p.get('productImage', '')
-        link = p.get('productUrl', '')
-        html += f'''
-        <a href="{link}" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
-            <img src="{image}" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
-            <div class="flex flex-col justify-center flex-grow text-left">
-                <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
-                <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">{name}</span>
-                <span class="text-base font-extrabold text-[#D84315] mt-1">{price:,}원</span>
-            </div>
-        </a>
-        '''
-    html += '</div>\n'
+        js_products.append({
+            "name": p.get('productName', ''),
+            "price": f"{p.get('productPrice', 0):,}",
+            "image": p.get('productImage', ''),
+            "link": p.get('productUrl', '')
+        })
+        
+    js_array_str = json.dumps(js_products, ensure_ascii=False)
+    
+    html = f'''
+<div id="coupang-deals-container" class="flex flex-col gap-3 w-full my-4"></div>
+<script>
+    (function() {{
+        const coupangProducts = {js_array_str};
+        
+        function renderRandomDeals() {{
+            const container = document.getElementById('coupang-deals-container');
+            if (!container || coupangProducts.length === 0) return;
+            
+            // Shuffle and pick 3
+            const shuffled = [...coupangProducts].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 3);
+            
+            let html = '';
+            selected.forEach(p => {{
+                html += `
+                <a href="${{p.link}}" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
+                    <img src="${{p.image}}" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
+                    <div class="flex flex-col justify-center flex-grow text-left">
+                        <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
+                        <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">${{p.name}}</span>
+                        <span class="text-base font-extrabold text-[#D84315] mt-1">${{p.price}}원</span>
+                    </div>
+                </a>
+                `;
+            }});
+            container.innerHTML = html;
+        }}
+        
+        // Initial render
+        renderRandomDeals();
+        
+        // Expose function globally so it can be called each time modal opens
+        window.refreshCoupangDeals = renderRandomDeals;
+    }})();
+</script>
+'''
     return html
 
 def update_index_html():

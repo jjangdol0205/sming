@@ -428,35 +428,43 @@
             </div>
 
             <!-- COUPANG_GOLDBOX_START -->
-<div class="flex flex-col gap-3 w-full my-4">
 
-        <a href="https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7958974&itemId=20493837289&vendorItemId=3000260906&traceid=V0-143-2d25f09476b2dcfc" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
-            <img src="https://img5c.coupangcdn.com/image/retail/images/261218040499787-b954ff07-8bd7-4302-8f14-eb2fa31628fb.jpg" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
-            <div class="flex flex-col justify-center flex-grow text-left">
-                <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
-                <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">신라면 120g</span>
-                <span class="text-base font-extrabold text-[#D84315] mt-1">15,790.0원</span>
-            </div>
-        </a>
+<div id="coupang-deals-container" class="flex flex-col gap-3 w-full my-4"></div>
+<script>
+    (function() {
+        const coupangProducts = [{"name": "신라면 120g", "price": "15,790.0", "image": "https://img5c.coupangcdn.com/image/retail/images/261218040499787-b954ff07-8bd7-4302-8f14-eb2fa31628fb.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7958974&itemId=20493837289&vendorItemId=3000260906&traceid=V0-143-2d25f09476b2dcfc"}, {"name": "베베앙 120 유아물티슈 캡형", "price": "11,990.0", "image": "https://image7.coupangcdn.com/image/retail/images/1423721803262108-18b9773d-b5e2-4ccc-b3c7-cb3ed11ad1af.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8548508229&itemId=21436080703&vendorItemId=84095676789&traceid=V0-143-ff37ad35591c9c7c"}, {"name": "뉴케어 정품 액티브 오리지널", "price": "51,610.0", "image": "https://image9.coupangcdn.com/image/retail/images/391972988229062-bbdb0c4e-dcbd-4c18-843c-6a4a258f5ff0.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7821562659&itemId=21246415266&vendorItemId=71742350634&traceid=V0-143-3db500e1c452df4a"}, {"name": "키루에 의자 컴퓨터의자 책상의자 사무용의자 학생 사무실의자 공부의자 사무실 회의실 독서실 사무용 컴퓨터 의자 푹신한 메쉬 의자", "price": "42,970.0", "image": "https://image10.coupangcdn.com/image/vendor_inventory/fa62/0a8a4de14e7b20ee2eab760024e8fdf334b00cc9e98e26b544af7828f656.png", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=9472591955&itemId=28195912659&vendorItemId=94075618756&traceid=V0-143-945cb2eecd790ac5"}, {"name": "아베다 비컬리 어드밴스드 인핸서 컬크림", "price": "37,160.0", "image": "https://img4c.coupangcdn.com/image/vendor_inventory/903c/59fe21598ff0bff5775ad6f3975746991fb43292a4724e5b7a53c1701704.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8142538814&itemId=23140626802&vendorItemId=90173520493&traceid=V0-143-49dfffe70043db81"}, {"name": "그린팜 애플망고 (냉동)", "price": "14,900.0", "image": "https://img5a.coupangcdn.com/image/retail/images/32044063274234-f528e21c-434f-43e4-91da-c02b1448667d.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=1880635733&itemId=3195803715&vendorItemId=71183210642&traceid=V0-143-6076092decf2e408"}, {"name": "라보토리 원터치 다용도 접이식 간편 폴딩 철제선반", "price": "31,900.0", "image": "https://image4.coupangcdn.com/image/vendor_inventory/7121/98bca622eae0c2e539d53ec4aad7c4b6170b62b1501467da08829c4b4d1d.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=9414101933&itemId=27973075161&vendorItemId=94931010851&traceid=V0-143-68aef30ab7c2e979"}, {"name": "닥터스베스트, MSM 1500mg 타블렛", "price": "27,090.0", "image": "https://image10.coupangcdn.com/image/vendor_inventory/26a1/3564fc0bfc8ad4ef00a8897e98a2fbc0b592615a3eb9fa1c15ea608dbff4.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=4791961748&itemId=15114053739&vendorItemId=81217786357&traceid=V0-143-4f722e921977ad58"}, {"name": "플레잇 수제 양꼬치 20입 (냉동)", "price": "15,300.0", "image": "https://image10.coupangcdn.com/image/retail/images/52570228257228-a5693d7a-3065-4d0b-bdcd-9b88cf7aeaf3.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=284367113&itemId=902633029&vendorItemId=5262152933&traceid=V0-143-2bcb2eb00fa7eb64"}, {"name": "라부르켓 립 밤", "price": "22,950.0", "image": "https://img5c.coupangcdn.com/image/retail/images/2024/12/10/16/0/5114fa64-5e58-4372-9d56-22f7ce29d895.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=6425290783&itemId=24602849691&vendorItemId=91614301327&traceid=V0-143-bac80a0487042cc6"}, {"name": "HUTT 창문 로봇청소기 자동 분수 초강흡입력 +리필걸레세트", "price": "159,900.0", "image": "https://image15.coupangcdn.com/image/vendor_inventory/036c/f514aee9a938c5ba622a7827ab173d8d1949dd4b11cf7af0b17c82676bcb.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8758565034&itemId=25466040587&vendorItemId=91350166966&traceid=V0-143-586533e7efa38e6a"}, {"name": "지리산수 무라벨", "price": "10,200.0", "image": "https://image7.coupangcdn.com/image/retail/images/3646448824876-2cbf8382-b58b-4806-9fbd-013e7537c713.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=1357560685&itemId=5747705235&vendorItemId=84995754536&traceid=V0-143-fafe80139f625949"}, {"name": "2026년 프리티케어 무선 물걸레 청소기, 3in1자동세척", "price": "279,900.0", "image": "https://image5.coupangcdn.com/image/vendor_inventory/e29d/abdf9683538e8c4745d3d0d1328e899be406f473765759de974cb74c145b.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8879999311&itemId=25914851257&vendorItemId=92789801550&traceid=V0-143-0e2e22646b9a8a67"}, {"name": "아카페라 심플리 디카페인 아메리카노 무라벨", "price": "21,490.0", "image": "https://image14.coupangcdn.com/image/retail/images/35187806279173-0ffcdb04-fc55-4dc0-b8b0-5a88691c9fae.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7777553121&itemId=3196535478&vendorItemId=71183937356&traceid=V0-143-cc2fb286266e120c"}, {"name": "비에이치 슬림 파워 온열미니 종아리 발 마사지기", "price": "29,900.0", "image": "https://image10.coupangcdn.com/image/retail/images/2025/01/09/13/1/8d705b81-b304-46fd-bc66-6246ac5c7a42.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8535525785&itemId=24708989805&vendorItemId=91743008142&traceid=V0-143-896521511f179628"}, {"name": "그린핑거 포레스트 워터리 에센스 선크림 SPF50+ PA++++", "price": "14,700.0", "image": "https://img5c.coupangcdn.com/image/retail/images/494427941771779-32839fa6-2e85-4879-9b72-e2c686b73951.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7227727720&itemId=18332232305&vendorItemId=85476748190&traceid=V0-143-ddea1aef0a9dcd0f"}, {"name": "보니애가구 문스테이 LED조명 수납 침대 + 베이직 매트리스 세트 방문설치", "price": "299,000.0", "image": "https://img1a.coupangcdn.com/image/retail/images/405615477152505-9c24bd64-2f9a-4304-99e1-b015a76e9f6f.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8266135892&itemId=23818385507&vendorItemId=90842135172&traceid=V0-143-ac8e8e9981382ac2"}, {"name": "해피콜 인덕션 이든 냄비 세트 3개", "price": "130,000.0", "image": "https://image11.coupangcdn.com/image/retail/images/847071969039972-9b0791d9-efda-4aa3-b83b-1ce8b2bb627d.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=6344348969&itemId=13323551069&vendorItemId=80579634916&traceid=V0-143-d285b61200dfc38f"}, {"name": "헤지스 26SS 퍼피로고 플랫 카드지갑 HIHO6EC3 + 선물 케이스 + 쇼핑백 동봉", "price": "67,000.0", "image": "https://image5.coupangcdn.com/image/retail/images/2026/04/15/18/0/a3a3d948-892e-4514-a26b-7a876c445be0.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=9497035706&itemId=28290059988&vendorItemId=95242964167&traceid=V0-143-9990d03a8ac70731"}, {"name": "토레타 이온음료", "price": "12,000.0", "image": "https://img3c.coupangcdn.com/image/vendor_inventory/c424/86bfabc13a8935d6391628d353f4fade0883df5909245b4f977f63230b06.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8157283424&itemId=18420568255&vendorItemId=90406944619&traceid=V0-143-f59321b52ca90de8"}, {"name": "[비건뷰티] 라온느 블랙 아르간 헤어오일", "price": "12,900.0", "image": "https://img4a.coupangcdn.com/image/retail/images/428343691125093-478f9117-6ad2-4fb0-9497-566459127bc1.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8556550115&itemId=23703269127&vendorItemId=3031287626&traceid=V0-143-f3cbcc48474a8e64"}, {"name": "골드팡 여성용 18k 달링하트통통 목걸이", "price": "239,000.0", "image": "https://image7.coupangcdn.com/image/rs_quotation_api/roiyfhec/84fff0faba5549feacc264fb74d1d070.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7802479783&itemId=21135335094&vendorItemId=92913276865&traceid=V0-143-92278cde0f3d9284"}, {"name": "원우네장작 캠핑용 반반장작", "price": "19,990.0", "image": "https://img2a.coupangcdn.com/image/retail/images/2026/02/11/10/0/4de75fe4-5f31-472c-97b3-560da949d42b.png", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8634098909&itemId=27813192972&vendorItemId=94773023739&traceid=V0-143-36e57f197d73079b"}, {"name": "실바트 인덕션 까리노 프라이팬", "price": "30,600.0", "image": "https://image4.coupangcdn.com/image/retail/images/2024/06/25/16/7/46ba671a-3dfb-4e1b-bb84-4ace8ece5856.jpg", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8112472076&itemId=23422294393&vendorItemId=90449321368&traceid=V0-143-38663ab83ae2ebf5"}, {"name": "누바르 펌프샷 스테인리스 압축 에어 펌프 뚫어뻥", "price": "32,900.0", "image": "https://image14.coupangcdn.com/image/retail/images/196286675123038-92c4aa9c-0e80-439a-a443-7a2bc3f23a09.png", "link": "https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=9425011790&itemId=28016011793&vendorItemId=94973321702&traceid=V0-143-902c4291e04f3ac5"}];
         
-        <a href="https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=8548508229&itemId=21436080703&vendorItemId=84095676789&traceid=V0-143-ff37ad35591c9c7c" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
-            <img src="https://image10.coupangcdn.com/image/retail/images/1423721803262108-18b9773d-b5e2-4ccc-b3c7-cb3ed11ad1af.jpg" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
-            <div class="flex flex-col justify-center flex-grow text-left">
-                <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
-                <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">베베앙 120 유아물티슈 캡형</span>
-                <span class="text-base font-extrabold text-[#D84315] mt-1">11,990.0원</span>
-            </div>
-        </a>
+        function renderRandomDeals() {
+            const container = document.getElementById('coupang-deals-container');
+            if (!container || coupangProducts.length === 0) return;
+            
+            // Shuffle and pick 3
+            const shuffled = [...coupangProducts].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 3);
+            
+            let html = '';
+            selected.forEach(p => {
+                html += `
+                <a href="${p.link}" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
+                    <img src="${p.image}" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
+                    <div class="flex flex-col justify-center flex-grow text-left">
+                        <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
+                        <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">${p.name}</span>
+                        <span class="text-base font-extrabold text-[#D84315] mt-1">${p.price}원</span>
+                    </div>
+                </a>
+                `;
+            });
+            container.innerHTML = html;
+        }
         
-        <a href="https://link.coupang.com/re/AFFSDP?lptag=AF7865143&pageKey=7821562659&itemId=21246415266&vendorItemId=71742350634&traceid=V0-143-3db500e1c452df4a" target="_blank" class="flex items-center gap-3 bg-white p-3 rounded-xl border border-red-200 shadow-sm active:scale-95 transition-transform hover:border-red-400">
-            <img src="https://image6.coupangcdn.com/image/retail/images/391972988229062-bbdb0c4e-dcbd-4c18-843c-6a4a258f5ff0.jpg" alt="상품" class="w-16 h-16 object-cover rounded-lg border border-gray-100">
-            <div class="flex flex-col justify-center flex-grow text-left">
-                <span class="text-[11px] text-white bg-red-500 rounded-sm px-1.5 py-0.5 w-max font-bold mb-1">오늘의 반값 특가</span>
-                <span class="text-xs font-bold text-gray-800 line-clamp-2 leading-snug">뉴케어 정품 액티브 오리지널</span>
-                <span class="text-base font-extrabold text-[#D84315] mt-1">51,610.0원</span>
-            </div>
-        </a>
-        </div>
+        // Initial render
+        renderRandomDeals();
+        
+        // Expose function globally so it can be called each time modal opens
+        window.refreshCoupangDeals = renderRandomDeals;
+    })();
+</script>
 <!-- COUPANG_GOLDBOX_END -->
 
             <button id="modal-proceed-btn" disabled class="w-full bg-gray-300 text-gray-500 text-xl font-extrabold py-4 rounded-xl shadow-sm mt-3 transition-colors">
@@ -473,6 +481,8 @@
         let timer = null;
         
         function openModal(url) {
+            if(window.refreshCoupangDeals) window.refreshCoupangDeals();
+            
             targetUrl = url;
             const modal = document.getElementById('interstitial-modal');
             const proceedBtn = document.getElementById('modal-proceed-btn');
